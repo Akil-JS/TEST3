@@ -455,7 +455,7 @@ void DigitalInput::readStatusInputs() {
                 statusInputs[i].lastChangeTime = getCurrentTimestamp(); // Use the RTC-aware function
                 String typeName = (statusInputs[i].type_name == MOTOR) ? "Motor" : (statusInputs[i].type_name == HEATER) ? "Heater" : "Machine";
                 Serial.println("Status change detected - Pin: " + String(statusInputs[i].pin) + " (" + typeName + ") State: " + String(newState));
-                logStatusChange(statusInputs[i].pin, newState, statusInputs[i].lastChangeTime, statusInputs[i].type_name);
+                //logStatusChange(statusInputs[i].pin, newState, statusInputs[i].lastChangeTime, statusInputs[i].type_name);
             }
         }
         statusInputs[i].lastState = newState; // Update lastState on every check
@@ -1050,4 +1050,5 @@ void DigitalInput::resetAllInputs() {
     
     // Reset pulse inputs
     resetAllPulseCounts();
+
 }
